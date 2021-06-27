@@ -23,7 +23,6 @@
         </div>
     </div>
     <main>
-        <a target="linkTanabe" href="http://www.tanabe-agency.co.jp/">所属事務所 株式会社田辺エージェンシー</a>
         <p>電子レンジにも強いラップ</p>
         <p class="mainText">
             太平洋戦争終戦から一週間後の1945年8月22日に福岡県福岡市に生まれる。
@@ -33,19 +32,26 @@
         </div>
 
         <script type="text/javascript">
-        var msg = new Array();
-        // 設定開始（メッセージの内容を設定してください）
-        msg[0] = 'アフリカ大陸';
-        msg[1] = 'パラボラアンテナ';
-        msg[2] = 'カーブミラー';
-        msg[3] = '椅子';
-        msg[4] = 'つまようじ';
-        // 設定終了
-        var no = Math.floor(Math.random() * msg.length);
-        // 表示開始
-        document.write(msg[no] + msg[no]);
-        // 表示終了
-        // -->
+        var tng1 = new Array();
+        var tng2 = new Array();
+        var tng3 = new Array();
+
+        tng1[0] = 'アフリカ大陸';
+        tng1[1] = 'パラボラアンテナ';
+        tng1[2] = 'カーブミラー';
+        tng1[3] = '椅子';
+        tng1[4] = 'つまようじ';
+        tng1[5] = 'さなぎ';
+
+        tng2[0]='に似た';tng2[1]='のための';tang2[2]='を超える';
+        tng3[0]='カワセミ';tng3[1]='太陽';tng3[2]='夜';tng3[3]='トランペット';
+
+
+        var no1 = Math.floor(Math.random() * tng1.length);
+        var no2 = Math.floor(Math.random() * tng2.length);
+        var no3 = Math.floor(Math.random() * tng3.length);
+
+        document.write(tng1[no1] + tng2[no2] + tng3[no3]);
         </script>
         
     </main>
