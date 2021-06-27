@@ -28,7 +28,7 @@ main {
     /* margin: auto; */
     /* max-width: 900px; */
     /* width: 100%; */
-    height: 700px
+    height: 550px
     
 }
 
@@ -37,50 +37,38 @@ h1 {
 }
 
 .text-sub {
-    padding: 10px 0 50px 0;
+    padding: 24px 0 90px 0;
 }
 
-script {
-    margin: 50px;
-    padding: 60px;
-}
 .tango {
-    background-color: rgb(181, 189, 66);
+    background-color: rgb(201, 201, 201);
     padding: 30px;
     font-size: 20px;
-    font-weight: bold;
 }
-
-.contents2 {
-    text-align: center;    
-}
-
-
 
 .btn {
-    padding: 12px 33px;
-    margin: 20px;
+    padding: 12px 80px;
+    margin: 50px 0;
     display: inline-block;
     color: rgb(255, 255, 255);
-    opacity: 0.8;
+    opacity: 1.0;
     cursor: pointer;
     border-radius: 12px;
 }
 
 .btn:hover {
-    opacity: 1.0;
+    opacity: 0.8;
 }
 
 .pushtest {
-    background-color: rgb(115, 212, 59);
+    background-color: rgb(107, 107, 107);
 }
 
 footer {
     width: 100%;
-    height: 120px; 
+    font-size: 14px;
     text-align: center;
-    padding: 50px 0;
+    padding: 100px 0 16px 0;
     background-color: #37373b;
     color:white;
-    border-bottom: 1px solid rgb(0, 0, 0);
 }
