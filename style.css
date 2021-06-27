@@ -1,95 +1,68 @@
-#header{
-    width: 100%;
-    padding: 0px 0;
-    margin: 0 auto;
-    text-align: center;
-    /* background-color: #ffb3b3; */
+* {
+    padding: 0;
+    margin: 0;
 }
 
-.headerImage{
-    display: inline-block;
-    font-size: 50px;
-    /* color: rgb(99, 27, 27); */
-    color: rgb(255, 255, 255);
-    font-family: sans-serif;
-    font-weight: 600;
-    /* text-shadow: 1px 1px 0px hsla(0, 0%, 0%, 0.651); */
-    text-shadow :
-    2px  2px 1px #000000,
-    -2px  2px 1px #000000,
-    2px -2px 1px #000000,
-    -2px -2px 1px #000000,
-    2px  0px 1px #000000,
-    0px  2px 1px #000000,
-    -2px  0px 1px #000000,
-    0px -2px 1px #000000;
-
-
-    background-image: url("img/karuizawa.jpg");
-    /* background-repeat: repeat; */
+header {
+    height: 56px;
     width: 100%;
+    /* padding:10px; */
+    /* padding: 15px 0px 15px 25px; */
+    /* margin: 0 auto; */
+    font-size: 24px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(36, 36, 36);
 }
 
-.headerMenuBar{
-    width: 100%;
-    margin: 0px;
-    background-color: #37373b;
-    /* background-color: rgb(43, 43, 43); */
-    /* color: white; */
+.title-m {
+    padding: 16px;
+    float: left;
 }
 
-.menu{
-    opacity: 1.0;
+.title-s {
+    padding: 24px 0px 16px 0px;
+    font-size: 16px;
+    float: left;
+}
+
+main {
+    background-color: #f8f8f8;
+    padding: 80px 110px 90px 110px;
+    /* margin: auto; */
+    /* max-width: 900px; */
+    /* width: 100%; */
+    height: 700px
     
-    /* background-color: rgb(0, 0, 0); */
 }
 
-.menu li{
-    color: white;
-    display: inline-block;
-    padding: 22px 50px 22px 50px;
-    cursor: pointer;
-
+h1 {
+    margin: 20px 0;
 }
 
-.menu li:hover{
-    opacity: 0.9;
-    background-color: rgb(214, 187, 114);
-    color: rgb(255, 249, 192);
-    transition: all 0.6s;
-    /* border-radius: 200px; */
-    /* transform: scale(1.01, 1.01) */
-
+.text-sub {
+    padding: 10px 0 50px 0;
 }
 
-.menu li:active{
-    background-color: rgb(105, 105, 58);
-    transition: all 0.1s;
+script {
+    margin: 50px;
+    padding: 60px;
 }
-
-main{
-    /* background-image: url("karuizawa.jpg"); */
-    /* background-image: url("img/karuizawa.jpg"); */
-    /* background-color: rgb(212, 221, 170); */
-    width: 100%;
-    padding-top: 40px;
-    padding-bottom: 90px;
-    /* height: 300px */
-    
+.tango {
+    background-color: rgb(181, 189, 66);
+    padding: 30px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .contents2 {
     text-align: center;    
 }
 
-.mainText {
-    line-height: 23px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+
 
 .btn {
     padding: 12px 33px;
+    margin: 20px;
     display: inline-block;
     color: rgb(255, 255, 255);
     opacity: 0.8;

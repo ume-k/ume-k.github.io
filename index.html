@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>無意味そば Meaningless Soba</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-    <div id="header">
-        <div class="headerImage">
-            <p align="center">無意味蕎麦</p>
-        </div>
-    </div>
+    <header>
+        <p class="title-m">無意味そば</p>
+        <p class="title-s">Meaningless Soba</p>
+    </header>
     <main>
-        <p>ランダム無意味</p>
-        <div class="contents2">
-            <span class="btn pushtest">応援する！</span>
-        </div>
+        <h1>ランダム無意味</h1>
+        <p class="text-sub">ランダムな無意味がランダムに表示される。</p>
 
         <script type="text/javascript">
-        var tng1 = ['アフリカ大陸','パラボラアンテナ','カーブミラー','椅子','つまようじ','さなぎ'];
-        var tng2 = ['に似た','のための','を超える'];
-        var tng3 = ['カワセミ','太陽','夜','トランペット'];
-        var no1 = Math.floor(Math.random() * tng1.length);
-        var no2 = Math.floor(Math.random() * tng2.length);
-        var no3 = Math.floor(Math.random() * tng3.length);
-        document.write(tng1[no1] + tng2[no2] + tng3[no3]);
+            var tng1 = ['アフリカ大陸','パラボラアンテナ','カーブミラー','椅子','つまようじ','さなぎ'];
+            var tng2 = ['に似た','のための','を超える'];
+            var tng3 = ['カワセミ','太陽','夜','トランペット'];
+            var no1 = Math.floor(Math.random() * tng1.length);
+            var no2 = Math.floor(Math.random() * tng2.length);
+            var no3 = Math.floor(Math.random() * tng3.length);
+            document.write('<span class="tango">'+tng1[no1]+tng2[no2]+tng3[no3]+'</span>');
         </script>
+
+        <div class="contents2">
+            <span class="btn pushtest">更新</span>
+        </div>
         
     </main>
     
     <footer>
         <p>
-            Copyright © 2020 ume All Rights Reserved.
+            Copyright © ume All Rights Reserved.
         </p>
     </footer>
 
