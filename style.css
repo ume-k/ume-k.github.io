@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    /* overflow:hidden; */
 }
 
 header {
@@ -27,15 +28,8 @@ header {
 main {
     background-color: #f8f8f8;
     padding: 80px 34px 90px 34px;
-    height: 550px
-    
-}
-
-@media screen and (max-width:480) {
-    main {
-        background-color: red;
-        text-align: center;
-    }
+    height: 550px;
+    text-align: center;
 }
 
 h1 {
@@ -48,11 +42,15 @@ h1 {
 
 .tango {
     background-color: rgb(201, 201, 201);
-    padding: 40px 10px;
-    font-size: 20px;
-    width: 300px;
+    padding: 50px 50px;
+    font-size: 24px;
+    margin: 10px 40px;
 }
 
+#tango {
+    width: auto;
+    text-align: center;
+}
 
 
 .btn {
