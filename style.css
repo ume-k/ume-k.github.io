@@ -12,6 +12,8 @@ header {
 }
 
 .title-m {
+    text-decoration: none;
+    color:rgb(255, 255, 255);
     padding: 16px;
     float: left;
 }
@@ -32,6 +34,13 @@ main {
     
 }
 
+@media screen and (max-width:480) {
+    main {
+        background-color: red;
+        text-align: center;
+    }
+}
+
 h1 {
     margin: 20px 0;
 }
@@ -44,7 +53,10 @@ h1 {
     background-color: rgb(201, 201, 201);
     padding: 40px 10px;
     font-size: 20px;
+    width: 300px;
 }
+
+
 
 .btn {
     padding: 12px 80px;

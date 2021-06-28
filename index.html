@@ -9,21 +9,25 @@
 </head>
 <body>
     <header>
-        <p class="title-m">無意味そば</p>
+        <a class="title-m" href="./">無意味そば</a>
         <p class="title-s">Meaningless Soba</p>
     </header>
     <main>
         <h1>ランダム無意味</h1>
         <p class="text-sub">↓ランダムな無意味がランダムに表示される。↓</p>
+        <div class="tango" id="tango"> </div>
 
         <script type="text/javascript">
-            var tng1 = ['アフリカ大陸','パラボラアンテナ','カーブミラー','椅子','つまようじ','さなぎ'];
-            var tng2 = ['に似た','のための','を超える'];
-            var tng3 = ['カワセミ','太陽','夜','トランペット'];
+            var tango = document.getElementById("tango");
+            var tng1 = ['アフリカ大陸','アンテナ','蚊取り線香','椅子','つまようじ','人間','カワセミ','太陽','夜','トランペット','太鼓','鳥','イルカ','地球'];
+            var tng2 = ['に似た','のための','を超える','みたいな','を思わせる','を超越した'];
+            var tng3 = ['カワセミ','太陽','夜','トランペット','太鼓','鳥','イルカ'];
             var no1 = Math.floor(Math.random() * tng1.length);
             var no2 = Math.floor(Math.random() * tng2.length);
             var no3 = Math.floor(Math.random() * tng3.length);
-            document.write('<span class="tango">'+tng1[no1]+tng2[no2]+tng3[no3]+'</span>');
+            <!-- document.write('<span class="tango">'+tng1[no1]+tng2[no2]+tng3[no3]+'</span>'); -->
+            tango.innerHTML = tng1[no1]+tng2[no2]+tng1[no3];
+            <!-- document.write(tng1[no1]+tng2[no2]+tng3[no3]); -->
         </script>
 
         <div class="contents2">
