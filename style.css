@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    height: 56px;
+    width: 100%;
+    font-size: 24px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(36, 36, 36);
+}
+
+.title-m {
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    padding: 16px;
+    float: left;
+}
+
+.title-s {
+    padding: 24px 0px 16px 0px;
+    font-size: 16px;
+    float: left;
+}
+
+main {
+    background-color: #f8f8f8;
+    padding: 80px 34px 90px 34px;
+    height: 550px;
+    text-align: center;
+}
+
+
+footer {
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    padding: 100px 0 16px 0;
+    background-color: #37373b;
+    color:white;
+}
