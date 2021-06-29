@@ -26,7 +26,7 @@ header {
 
 main {
     background-color: #f8f8f8;
-    padding: 80px 34px 90px 34px;
+    padding: 60px 90px 90px 90px;
     height: 550px;
     text-align: center;
 }
@@ -36,14 +36,24 @@ h1 {
 }
 
 .text-sub {
-    padding: 24px 0 90px 0;
+    padding: 48px 0px 24px 0px;
 }
 
 .tango {
     background-color: rgb(201, 201, 201);
-    padding: 50px 50px;
+    padding: 40px 3px;
     font-size: 24px;
-    margin: 10px 40px;
+    margin: 10px 10px;
+}
+
+@media screen and (max-width:480px) {
+    .tango {
+        font-size: 18px;
+    }
+    main {
+        padding: 60px 10px 90px 10px;
+    }
+
 }
 
 #tango {
