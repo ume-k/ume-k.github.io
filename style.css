@@ -26,11 +26,32 @@ header {
 
 main {
     background-color: #f8f8f8;
-    padding: 80px 34px 90px 34px;
+    padding: 50px 34px 90px 34px;
     height: 550px;
+}
+
+.title-main {
+    padding: 30px 0;
+    margin-bottom: 70px;
+    background-color: rgb(192, 224, 176);
     text-align: center;
 }
 
+h3 {
+    margin: 20px 0;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+ul {
+    margin: 0 20px;
+}
+
+hr {
+    margin: 30px auto;
+}
 
 footer {
     width: 100%;
