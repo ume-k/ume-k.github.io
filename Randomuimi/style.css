@@ -3,8 +3,6 @@
     margin: 0;
 }
 
-
-
 header {
     height: 56px;
     width: 100%;
@@ -44,7 +42,7 @@ h1 {
 .tango {
     background-color: rgb(201, 201, 201);
     padding: 40px 3px;
-    font-size: 24px;
+    font-size: 28px;
     margin: 10px 10px;
 }
 
