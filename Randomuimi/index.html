@@ -22,27 +22,31 @@
     <main>
         <h1>ランダム無意味</h1>
         <p class="text-sub">↓ランダムな無意味がランダムに表示される↓</p>
-        <!-- <a class="tango" id="tango">初期</a> -->
         <div class="tango" id="tango">初期</div>
 
 
-        <script type="text/javascript">
-            var tango = document.getElementById("tango");
-            var tng1 = ['アフリカ大陸','アンテナ','蚊取り線香','椅子','つまようじ','人間','カワセミ','太陽','夜','トランペット','太鼓','鳥','イルカ','地球','建前','松','数字','鏡','富士山','炊飯器','漫画','小説','テープ','嘘'];
-            var tng2 = ['に似た','のための','を超える','みたいな','を思わせる','を超越した','の匂いがする'];
-            var tng3 = ['カワセミ','太陽','夜','トランペット','太鼓','鳥','イルカ'];
-            var no1 = Math.floor(Math.random() * tng1.length);
-            var no2 = Math.floor(Math.random() * tng2.length);
-            var no3 = Math.floor(Math.random() * tng3.length);
-            <!-- document.write('<span class="tango">'+tng1[no1]+tng2[no2]+tng3[no3]+'</span>'); -->
-            tango.innerHTML = tng1[no1]+tng2[no2]+tng1[no3];
-            <!-- document.write(tng1[no1]+tng2[no2]+tng3[no3]); -->
-        </script>
 
         <div class="contents2">
             <span class="btn pushtest" onclick="window.location.reload();">更新</span>
         </div>
-        
+        <a id="tweet-btn" href="https://twitter.com/intent/tweet?text=TANGO%0d&hashtags=%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E7%84%A1%E6%84%8F%E5%91%B3&url=https%3A%2F%2Fume-k.github.io%2FRandomuimi%2F%0d" class="twitter-share-button" data-size="large">ツイート</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        <script type="text/javascript">
+            var tango = document.getElementById("tango");
+            var twebtn = document.getElementById("tweet-btn");
+            var tng1 = ['アフリカ大陸','私','アメリカ','ヨーロッパ','日本','総理大臣','アンテナ','蚊取り線香','椅子','男','女','人間','生き物','ロボット','心臓','肺','骨','カワセミ','うぐいす','ヒヨドリ','太陽','惑星','火星','世界','月','夜','星座','音','トランペット','太鼓','鳥','魚','イルカ','クジラ','地球','建前','松','竹','梅','数字','鏡','富士山','炊飯器','トイレ','お風呂','テレビ','テレビ番組','サイト','インターネット','漫画','小説','映画','ドラマ','絵画','鉛筆','石炭','ケーキ','寒天','テープ','嘘','ランダム','無意味','そば','野球','サッカー','バスケ','ゴルフ','スマホ'];
+            var tng2 = ['に似た','のための','を超える','みたいな','を思わせる','を超越した','の匂いがする','＆','','','','だった',' with ',' featuring ','と','な','を食べる','に似てる'];
+            var tng3 = ['カワセミ','太陽','夜','トランペット','太鼓','鳥','イルカ'];
+            var no1 = Math.floor(Math.random() * tng1.length);
+            var no2 = Math.floor(Math.random() * tng2.length);
+            var no3 = Math.floor(Math.random() * tng3.length);
+            tango.innerHTML = tng1[no1]+tng2[no2]+tng1[no3];
+            twebtn.href = "https://twitter.com/intent/tweet?text=%E3%80%8C+"+tango.innerHTML+"+%E3%80%8D%0d&hashtags=%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E7%84%A1%E6%84%8F%E5%91%B3&url=https%3A%2F%2Fume-k.github.io%2FRandomuimi%2F%0d";
+            <!-- document.write(no1 + "と" + no2 + "と" + no3 + "です。"); -->
+
+
+        </script>
+
     </main>
     
     <footer>

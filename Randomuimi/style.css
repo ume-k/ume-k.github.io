@@ -3,14 +3,7 @@
     margin: 0;
 }
 
-@media screen and (max-width:480px) {
-    .tango {
-        font-size: 18px;
-    }
-    main {
-        padding: 60px 10px 90px 10px;
-    }
-}
+
 
 header {
     height: 56px;
@@ -60,10 +53,13 @@ h1 {
     text-align: center;
 }
 
+.twitter-share-button {
+    margin: 16px 0px 0px 0px;
+}
 
 .btn {
     padding: 24px 60px;
-    margin: 40px 0;
+    margin: 20px 0;
     display: inline-block;
     color: rgb(255, 255, 255);
     opacity: 1.0;
@@ -78,6 +74,15 @@ h1 {
 
 .pushtest {
     background-color: rgb(107, 107, 107);
+}
+
+@media screen and (max-width:480px) {
+    .tango {
+        font-size: 18px;
+    }
+    main {
+        padding: 60px 10px 90px 10px;
+    }
 }
 
 footer {
