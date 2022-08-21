@@ -60,9 +60,9 @@
             console.log("中抜き: "+tng1[no1]+tng1[no3]);
 
             function RandomWords() {    
-                var no1 = Math.floor(Math.random() * tng1.length);
-                var no2 = Math.floor(Math.random() * tng2.length);
-                var no3 = Math.floor(Math.random() * tng1.length);
+                no1 = Math.floor(Math.random() * tng1.length);
+                no2 = Math.floor(Math.random() * tng2.length);
+                no3 = Math.floor(Math.random() * tng1.length);
                 tango.innerHTML = tng1[no1]+tng2[no2]+tng1[no3];
                 console.log("bt");
                 console.log("tng1の" + no1 + "番目　tng2の" + no2 + "番目　tng1の" + no3 + "番目　tng1は全"+ tng1.length + "個。tng2は全"+ tng2.length +"個。");
