@@ -72,6 +72,8 @@ h1 {
 
 .pushGen {
     background-color: rgb(107, 107, 107);
+    font-size: 32px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 @media screen and (max-width:480px) {
