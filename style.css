@@ -27,7 +27,7 @@ header {
 main {
     background-color: #f8f8f8;
     padding: 50px 34px 90px 34px;
-    height: 550px;
+    height: auto;
 }
 
 .title-main {
