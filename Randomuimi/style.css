@@ -76,6 +76,12 @@ h1 {
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
+.pushGen:active{
+    background-color: rgb(59, 59, 59);
+    color:#c2c2c2;
+    font-size: 27px;
+}
+
 @media screen and (max-width:480px) {
     .tango {
         font-size: 18px;
