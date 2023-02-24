@@ -44,12 +44,17 @@ h1 {
     padding: 40px 3px;
     font-size: 28px;
     margin: 10px 10px;
-}
-
-#tango {
     width: auto;
     text-align: center;
 }
+
+.tango-aux {
+    background-color: rgb(201, 201, 201);
+    padding: 21px 0px;
+    font-size: 21px;
+    margin: 10px 300px;
+}
+
 
 .twitter-share-button {
     margin: 16px 0px 0px 0px;
@@ -79,7 +84,7 @@ h1 {
 .pushGen:active{
     background-color: rgb(59, 59, 59);
     color:#c2c2c2;
-    font-size: 27px;
+    /* font-size: 27px; */
 }
 
 @media screen and (max-width:480px) {
