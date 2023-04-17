@@ -21,9 +21,6 @@
             var tango = document.getElementById("tango");
             var twebtn = document.getElementById("tweet-btn");
             var twShare = document.getElementById("tw-share");
-            <!-- twShare.setAttribute("data-text","「 "+tango.innerText+" 」1"); -->
-
-
             function RandomWords() {    
                 no1 = Math.floor(Math.random() * tng1.length);
                 no2 = Math.floor(Math.random() * tng2.length);
