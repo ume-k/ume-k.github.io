@@ -52,7 +52,7 @@ h1 {
     background-color: rgb(201, 201, 201);
     padding: 21px 0px;
     font-size: 21px;
-    margin: 10px 300px;
+    margin: 10px 50px;
 }
 
 
@@ -104,4 +104,5 @@ footer {
     background-color: #242424;
     /* background-color: #37373b; */
     color:white;
+    margin: 20px 0px 0px 0px;
 }
