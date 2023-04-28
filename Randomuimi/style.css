@@ -26,7 +26,7 @@ header {
 
 main {
     background-color: #f8f8f8;
-    padding: 55px 60px 25px 60px;
+    padding: 40px 60px 25px 60px;
     height: auto;
     text-align: center;
 }
@@ -36,7 +36,7 @@ h1 {
 }
 
 .text-sub {
-    padding: 48px 0px 24px 0px;
+    padding: 30px 0px 24px 0px;
 }
 
 .tango {
@@ -52,7 +52,7 @@ h1 {
     background-color: rgb(201, 201, 201);
     padding: 21px 0px;
     font-size: 21px;
-    margin: 20px 100px;
+    margin: 0px 100px 20px 100px;
 }
 
 .twitter-share-button {
@@ -93,8 +93,11 @@ h1 {
         padding: 60px 10px 90px 10px;
     }
     .tango-aux {
-        margin:20px 30px;
+        margin:0px 30px 20px 30px;
         font-size: 18px;
+    }
+    .lab {
+        margin: 0px 30px 0px 30px;
     }
 }
 
@@ -135,4 +138,13 @@ footer {
 
 i.fa-twitter {
     font-size: 20px;
+}
+
+.lab {
+    /* float: left; */
+    background-color: rgb(145, 138, 138);
+    padding: 7px 0px;
+    font-size: 15px;
+    margin: 0px 100px;
+    text-align: center;
 }

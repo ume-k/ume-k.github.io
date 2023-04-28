@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
-    <meta name="description" content="ランダムに単語が表示され、無意味な文字列を生成するサイト。膨大な組み合わせで、アイデアやお題が欲しい時のツール、ネタ出し用のワードガチャアプリとしてあなたの発想を手助けします。簡単なクリックで生まれた言葉をTwitterで共有できます。">
     <head prefix="og: http://ogp.me/ns#">
         <meta property="og:site_name" content="無意味そば">
         <meta property="og:title" content="ランダム無意味">
@@ -22,6 +21,7 @@
         <meta name="twitter:title" content="ランダム無意味">
         <meta name="twitter:description" content="ランダムに単語が表示されて無意味な文字列を生成します。アイデア・お題に使えるワードガチャ">
         <meta name="twitter:image" content="https://ume-k.github.io/Randomuimi/blackgray.png">
+        <meta name="description" content="ランダムに単語が表示され、無意味な文字列を生成するサイト。膨大な組み合わせで、アイデアやお題が欲しい時のツール、ネタ出し用のワードガチャアプリとしてあなたの発想を手助けします。簡単なクリックで生まれた言葉をTwitterで共有できます。">
     </head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BD4QYWFV9M"></script>
@@ -43,7 +43,7 @@
     </header>
     <main>
         <h1>ランダム無意味</h1>
-        <p class="text-sub">↓単語がランダムに生成されて無意味になる↓</p>
+        <p class="text-sub">生成ボタンをクリックするとランダムに単語が表示されて無意味な文字列が誕生します。<br>漫画・小説のネタ出しやお題決めなどにお使いください。</p>
         <div class="tango" id="tango">↓<i>生成ボタンをクリック</i>↓</div>
         <div class="contents2">
             <button class="btn pushGen" onclick="RandomWords();" autofocus>生成</button>
@@ -52,7 +52,9 @@
             <button id="twitter-share-button"><i class="fab fa-twitter"></i> ツイート</button>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
+        <div class="lab">中抜き</div>
         <div class="tango-aux" id="tango-hollow">生成ボタンクリック</div>
+        <div class="lab">反転</div>
         <div class="tango-aux" id="tango-invert">クリックを生成ボタン</div>
         <script type="text/javascript">
             var tango = document.getElementById("tango");
@@ -65,14 +67,9 @@
                 tango.innerHTML = tng1[no1]+tng2[no2]+tng1[no3];
                 tangoHollow.innerHTML = tng1[no1]+tng1[no3];
                 tangoInvert.innerHTML = tng1[no3]+tng2[no2]+tng1[no1];
-                console.log("「"+tng1[no1]+"」("+no1+"番目),\n「"+tng2[no2]+"」("+no2+"番目),\n「"+tng1[no3]+"」("+no3+"番目),\ntng1は全"+tng1.length+"個.tng2は全"+tng2.length+"個.");
-                console.log("☆生成: "+tng1[no1]+tng2[no2]+tng1[no3]);
-                console.log("反転: "+tng1[no3]+tng2[no2]+tng1[no1]);
-                console.log("中抜き: "+tng1[no1]+tng1[no3]);
             }
             document.getElementById("twitter-share-button").onclick = function() {
                 let twText = encodeURIComponent(tango.innerHTML);
-                console.log(twText);
                 let hashtags = "ランダム無意味";
                 let url = "https://ume-k.github.io/Randomuimi/";
                 window.open("https://twitter.com/intent/tweet?text=%E3%80%8E%E3%80%80"+twText+"%E3%80%80%E3%80%8F%0D%0A%0D%0A"+"&hashtags="+hashtags+"&url="+url);
