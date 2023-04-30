@@ -86,10 +86,17 @@ li {
 }
 
 .nazoimg {
-    display: block;
+    display: flex;
+    margin: 10px 0px;
 }
 
+.ball:hover {
+    opacity: 0.9;
+}
 
+span {
+    display: block;
+}
 
 hr {
     margin: 30px auto;
