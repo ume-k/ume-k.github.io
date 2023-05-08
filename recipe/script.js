@@ -21,7 +21,8 @@ const ingredients = [
   "ウインナー","ソーセージ","チキンカレー","ベーコン","ナポリタン","サラダチキン","軟骨",
   "カルビ","プルコギ","たけのこ","甘納豆","野沢菜","とんかつ","ニラ玉","紅しょうが",
   "シークヮーサー","果汁グミ","ドリトス","コーンフレーク","玉ねぎ",'ニラ','小松菜','カリフラワー',
-  'パイナップル'
+  'パイナップル','ほうじ茶','赤紫蘇','黒蜜','黒糖','黒酢','オリーブオイル','レタス','白菜',
+  'パセリ','ケール'
 ];
 
 const cookingMethods = [
@@ -41,18 +42,20 @@ const reverseCookingMethods = [
 
 function generateRecipe() {
   const ingredient = ingredients[Math.floor(Math.random() * ingredients.length)];
+  const ingredient02 = ingredients[Math.floor(Math.random() * ingredients.length)];
   const cookingMethod = cookingMethods[Math.floor(Math.random() * cookingMethods.length)];
-
+  const cookingMethod02 = cookingMethods[Math.floor(Math.random() * cookingMethods.length)];
   const recipe = document.getElementById("recipe");
-  recipe.innerHTML = `「${ingredient}${cookingMethod}」を作りましょう！`;
+  recipe.innerHTML = `「 ${ingredient}${cookingMethod} 」 と 「 ${ingredient02}${cookingMethod02} 」`;
 }
 
 function generateReverseRecipe() {
   const ingredient = ingredients[Math.floor(Math.random() * ingredients.length)];
-  const reverseCookingMethod =
-    reverseCookingMethods[Math.floor(Math.random() * reverseCookingMethods.length)];
+  const ingredient02 = ingredients[Math.floor(Math.random() * ingredients.length)];
+  const reverseCookingMethod = reverseCookingMethods[Math.floor(Math.random() * reverseCookingMethods.length)];
+  const reverseCookingMethod02 = reverseCookingMethods[Math.floor(Math.random() * reverseCookingMethods.length)];
   const recipe = document.getElementById("recipe");
-  recipe.innerHTML = `「${reverseCookingMethod}${ingredient}」を作りましょう！`;
+  recipe.innerHTML = `「 ${reverseCookingMethod}${ingredient} 」 と 「 ${reverseCookingMethod02}${ingredient02} 」`;
 }
 
 const button = document.querySelector("button");

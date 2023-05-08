@@ -48,7 +48,7 @@ main {
 }
 
 h2 {
-    font-size: 33px;
+    font-size: 30px;
     margin: 30px 0px;
 }
 
@@ -98,7 +98,8 @@ li {
 span {
     display: block;
     padding: 15px 20px;
-    font-size: 22px;
+    font-size: 18px;
+    line-height: 135%;
 }
 
 hr {
