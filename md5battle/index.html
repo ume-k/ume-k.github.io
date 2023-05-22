@@ -12,24 +12,28 @@
 
 </head>
 <body>
+    <header>
+        <a class="title-m" href="../">無意味そば</a>
+    </header>
     <main>
         <h1>MD5バトル</h1>
-    <div class="input-container">
-        <label for="input-1">テキスト1:</label>
-        <input type="text" id="input-1">
-        <label for="input-2">テキスト2:</label>
-        <input type="text" id="input-2">
-        <button onclick="calculateMD5()">バトル！</button>
-    </div>
-    <p id="out-1"></p>
-    <p id="sum-1"></p>
-
-    <p id="out-2"></p>
-    <p id="sum-2"></p>
-    <div id="result-container">
-        <h2 id="result"></h2>
-    </div>
-    <script src="script.js"></script>
+        <div class="input-container">
+            <label for="input-1">テキスト1：</label>
+            <input type="text" id="input-1">
+            <label for="input-2">テキスト2：</label>
+            <input type="text" id="input-2">
+            <button class="btn-battle" onclick="calculateMD5()">バトル！</button>
+        </div>
+        <div class="score">
+            <p id="out-1"></p>
+            <p id="sum-1"></p>
+            <p id="out-2"></p>
+            <p id="sum-2"></p>
+        </div>
+        <div id="result-container">
+            <h2 id="result"></h2>
+        </div>
+        <script src="script.js"></script>
     </main>
 </body>
 </html>

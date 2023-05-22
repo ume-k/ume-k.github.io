@@ -46,7 +46,7 @@ function generateRecipe() {
   const cookingMethod = cookingMethods[Math.floor(Math.random() * cookingMethods.length)];
   const cookingMethod02 = cookingMethods[Math.floor(Math.random() * cookingMethods.length)];
   const recipe = document.getElementById("recipe");
-  recipe.innerHTML = `「 ${ingredient}${cookingMethod} 」 と 「 ${ingredient02}${cookingMethod02} 」`;
+  recipe.innerHTML = `「 ${ingredient}${cookingMethod} 」 <br>と<br> 「 ${ingredient02}${cookingMethod02} 」`;
 }
 
 function generateReverseRecipe() {
@@ -55,7 +55,7 @@ function generateReverseRecipe() {
   const reverseCookingMethod = reverseCookingMethods[Math.floor(Math.random() * reverseCookingMethods.length)];
   const reverseCookingMethod02 = reverseCookingMethods[Math.floor(Math.random() * reverseCookingMethods.length)];
   const recipe = document.getElementById("recipe");
-  recipe.innerHTML = `「 ${reverseCookingMethod}${ingredient} 」 と 「 ${reverseCookingMethod02}${ingredient02} 」`;
+  recipe.innerHTML = `「 ${reverseCookingMethod}${ingredient} 」 <br>と<br> 「 ${reverseCookingMethod02}${ingredient02} 」`;
 }
 
 const button = document.querySelector("button");
@@ -68,7 +68,7 @@ button.addEventListener("click", () => {
 });
 
 document.getElementById("twitter-share-button").onclick = function() {
-  let twText = encodeURIComponent("今日の料理は……\n"+recipe.innerHTML);
+  let twText = encodeURIComponent("今日の料理は……\n"+recipe.innerHTML.replace(/<br>/g, "\n"));
   let hashtags = "ランダム料理";
   let url = "https://ume-k.github.io/recipe/";
   window.open("https://twitter.com/intent/tweet?text="+twText+"%0D%0A"+"&hashtags="+hashtags+"&url="+url);
