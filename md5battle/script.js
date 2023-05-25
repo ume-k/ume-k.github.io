@@ -9,10 +9,8 @@ function calculateMD5() {
 
     document.getElementById("result").innerHTML = "<div style='color:red'>⚔戦闘中⚔</div>";
     window.setTimeout(() => {
-        document.getElementById("out-1").innerHTML = md5_1;
-        document.getElementById("out-2").innerHTML = md5_2;
-        document.getElementById("sum-1").innerHTML = total1;
-        document.getElementById("sum-2").innerHTML = total2;
+        document.getElementById("out-1").innerHTML = "チームA: " + total1 + "pt (" + md5_1 + ")";
+        document.getElementById("out-2").innerHTML = "チームB: " + total2 + "pt (" + md5_2 + ")";
         if (total1 > total2) {
             resultText = `結果……<br> 「${input1}」 が勝ち！`;
         } else if (total1 < total2) {

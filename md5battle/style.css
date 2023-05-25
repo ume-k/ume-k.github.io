@@ -29,7 +29,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0px;
+    margin: 15px 0px;
 }
 
 label {
@@ -39,14 +39,14 @@ label {
 input[type="text"] {
     width: 60%;
     padding: 10px;
-    font-size: 22px;
+    font-size: 15px;
     margin: 0px 0px 20px 0px;
 }
 
 .btn-battle {
     margin-top: 10px;
     padding: 6px 12px;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -54,7 +54,7 @@ input[type="text"] {
     background-color: rgb(150, 187, 148);
     padding: 10px;
     margin: 0px 30px;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 #result-container {
@@ -64,6 +64,6 @@ input[type="text"] {
 }
 
 #result {
-    font-size: 34px;
+    font-size: 24px;
 }
 
