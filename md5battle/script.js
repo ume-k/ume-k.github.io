@@ -12,11 +12,11 @@ function calculateMD5() {
         document.getElementById("out-1").innerHTML = "チームA: " + total1 + "pt (" + md5_1 + ")";
         document.getElementById("out-2").innerHTML = "チームB: " + total2 + "pt (" + md5_2 + ")";
         if (total1 > total2) {
-            resultText = `結果……<br> 「${input1}」 が勝ち！`;
+            resultText = `「${input1}」VS.「${input2}」の結果<br>「${input1}」 が勝ち！`;
         } else if (total1 < total2) {
-            resultText = `結果……<br> 「${input2}」 が勝ち！`;
+            resultText = `「${input1}」VS.「${input2}」の結果<br>「${input2}」 が勝ち！`;
         } else {
-            resultText = "結果……<br>引き分け！";
+            resultText = `「${input1}」VS.「${input2}」の結果<br>引き分け！`;
         }
         document.getElementById("result").innerHTML = resultText;
     }, 800);
