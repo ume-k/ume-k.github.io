@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>新語・流行語ジェネレータ</title>
+</head>
+<body>
+    <main>
+        <h1> 新語・流行語ジェネレータ </h1>
+        <div class="contents">
+            <p class="introduction-text">予測することが難しい流行語をランダムの力で的中させます。</p>
+            <p class="introduction-text" id="totalNumber"></p>
+            <button onclick="generateNewWords()">生成</button>
+            <div class="arrow-container">
+                <div class="arrow-down"></div>
+            </div>
+            <div class="dictionary">
+                <p id="newword" class="newword">「 新語・流行語 」</p>
+                <p id="explanatoryText">新語・流行語の解説</p>    
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
