@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カラーコードアニマル</title>
+  <style>
+    header {
+      height: 56px;
+      width: 100%;
+      font-size: 24px;
+      color:rgb(255, 255, 255);
+      background-color: rgb(36, 36, 36);
+    }
+    .title-m {
+      text-decoration: none;
+      color:rgb(255, 255, 255);
+      padding: 16px;
+      float: left;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #dfd0b4;
+    }
+    .wrapper {
+      background-color: rgb(255, 255, 255);
+      width: 70%;
+      padding: 55px 40px;
+      margin: 20px auto;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+    #color-picker {
+      margin-top: 15px;
+    }
+    #generated-text {
+      margin-top: 20px;
+      font-size: 27px;
+    }
+    #introduction {
+      font-size: 20px;
+      padding: 0px;
+      border-bottom: 6px solid #000;
+      display: inline-block;
+    }
+    #color-shape {
+      margin: 0px auto;
+      width: 120px;
+      height: 16px;
+      border: 2px solid #ffffff;
+      margin-top: 30px;
+    }
+    #intro-container {
+      border: 2px solid rgb(0, 0, 0);
+      padding: 32px 16px;
+      margin-top: 50px;
+    }
+    #animal {
+      margin-top: 50px;
+      border-radius: 30%;
+    }
+    footer {
+      width: 100%;
+      font-size: 14px;
+      text-align: center;
+      padding: 70px 0 16px 0;
+      background-color: #242424;
+      color:white;
+      margin: 0px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="title-m" href="../">無意味そば</a>
+  </header>
+  <div class="wrapper">
+    <h1>カラーコードアニマル</h1>
+    <div>↓色を選択↓</div>
+    <input type="color" id="color-picker" value="#000000" onchange="generateText()">
+    <div id="intro-container">
+      <div id="introduction">#000000 の色動物は</div>
+      <div id="generated-text">かなり かなり かなり かなり かなり ネコ</div>
+    </div>
+    <img id="animal" src="CCA_sample.png" alt="カラーコードアニマルのイメージ" width="80px">  
+  </div>
+  <footer>
+    <p>
+      MUIMI SOBA -Meaningless Soba-
+    </p>
+  </footer>
+  <script>
+    const colorTextMap = {
+      '0': 'かなり',
+      '1': 'うるさい',
+      '2': 'かわいい',
+      '3': 'かしこい',
+      '4': 'ふさふさの',
+      '5': '美しい',
+      '6': 'こわい',
+      '7': '元気な',
+      '8': '陽気な',
+      '9': '強い',
+      'a': '大きい',
+      'b': '面白い',
+      'c': 'あたたかい',
+      'd': '優しい',
+      'e': '幸せな',
+      'f': '良い',
+    };
+    const lastDigitTextMap = {
+      '0': 'ネコ',
+      '1': 'イヌ',
+      '2': 'フクロウ',
+      '3': 'ウサギ',
+      '4': 'ハムスター',
+      '5': 'タヌキ',
+      '6': 'キツネ',
+      '7': 'ヘビ',
+      '8': 'ハリネズミ',
+      '9': 'カピバラ',
+      'a': 'トラ',
+      'b': 'リス',
+      'c': 'カエル',
+      'd': 'オオカミ',
+      'e': 'ライオン',
+      'f': 'パンダ',
+    };
+    function generateText() {
+      const colorPicker = document.getElementById('color-picker');
+      const colorCode = colorPicker.value.substring(1).toLowerCase();
+      const textArray = colorCode
+      .split('').map((char, index, array) => {
+        if (index === array.length - 1) {
+          return lastDigitTextMap[char] || '';
+        }
+        return colorTextMap[char] || '';
+      });
+      const generatedTextElement = document.getElementById('generated-text');
+      generatedTextElement.textContent = textArray.join(' ');
+      const introTextElement = document.getElementById('introduction');
+      introTextElement.textContent = `#${colorCode} の色動物は`;
+      const introductionElement = document.getElementById('introduction');
+      introductionElement.style.borderBottomColor = colorPicker.value;
+      const animalElement = document.getElementById('animal');
+      animalElement.style.backgroundColor = colorPicker.value;
+    }
+  </script>
+</body>
+</html>
