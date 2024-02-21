@@ -37,14 +37,21 @@ h1 {
 
 .text-sub {
     padding: 10px 0px 10px 0px;
-    margin: 24px 0px 24px 0px;
+    margin-top: 24px;
+    line-height: 160%;
+}
+
+#ball:active{
+    transition: transform 0.3s;
+    transform: scale(1.4);
+
 }
 
 .tango {
     background-color: rgb(201, 201, 201);
     padding: 40px 3px;
     font-size: 32px;
-    margin: 10px 10px;
+    margin-top: 20px;
     width: auto;
     text-align: center;
 }
@@ -132,6 +139,27 @@ footer {
 
 i.fa-twitter {
     font-size: 20px;
+}
+
+h2 {
+    margin-top: 80px;
+}
+
+#description {
+    margin-top: 40px;
+}
+
+#muimipic {
+    padding: 5px;
+    background-color: #1e597e;
+    margin-top: 40px;
+}
+
+#muimipic:active {
+    background-color: #5d60f0;
+    transition: transform 0.3s;
+    transform: scale(1.5);
+
 }
 
 @media screen and (max-width:480px) {
