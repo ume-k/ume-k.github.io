@@ -39,30 +39,36 @@ main {
     margin: 20px;
     padding: 20px 20px 25px 20px;
     height: auto;
-    text-align: center;
+    /* text-align: center; */
 }
 
 h1 {
     /* background-color: rgb(226, 226, 226); */
     padding: 0px;
-    margin: 20px;
+    margin: 20px 0px;
     /* text-decoration: 12px underline rgb(252, 118, 66); */
 }
 
 .introduction-text {
-    padding: 10px;
+    padding: 10px 0px;
 }
 
 .dictionary {
     /* background-color: #3b553c; */
     border: 2px solid black;
     padding: 0px;
-    margin: 0px 0px;
+    margin-top: 20px;
     
 }
 
+#preface {
+    padding: 20px 0;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
 .newword {
-    padding: 25px 0;
+    padding: 20px 5px;
     margin: 0px;
     font-size: 30px;
     font-weight: bold;
@@ -74,18 +80,17 @@ h1 {
 
 #explanatoryText {
     font-size: 25px;
-    padding: 20px 0;
+    padding: 20px 20px;
     /* border: 2px solid black; */
-
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 18px 60px;
     font-size: 20px;
     font-family: sans-serif;
     font-weight: bold;
-    background-color: #e65400;
+    background-color: #e75c0c;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -102,15 +107,32 @@ button:active {
 }
 
 .arrow-down {
-    margin: 30px;
+    margin: 20px;
     width: 0px;
     height: 0px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 15px solid #000;
     display: inline-block;
-}  
-/* 
-.arrow-container {
-    text-align: center;
-} */
+}
+
+@media screen and (max-width:480px) {
+    main {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 160%;
+    }
+    .contents {
+        font-size: 90%;
+    }
+    #newword {
+        font-size: 130%;
+    }
+    #explanatoryText {
+        font-size: 130%;
+    }
+    #preface {
+        font-size: 150%;
+    }
+}
