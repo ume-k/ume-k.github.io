@@ -8,12 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/Randomuimi/favicon.ico" id="favicon">
     <link rel="apple-touch-icon" sizes="180x180" href="/Randomuimi/apple-touch-icon-180x180.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
     <!-- <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet"> -->
-
     <head prefix="og: http://ogp.me/ns#">
         <meta property="og:site_name" content="無意味そば">
         <meta property="og:title" content="ランダム無意味ワード生成機">
@@ -75,17 +73,19 @@
         <div class="lab01">反転</div>
         <div class="tango-aux" id="tango-invert">クリックを生成ボタン</div>
         <h2>無意味な説明</h2>
-        <p id="description" class="text-sub">ランダムに選ばれた主に日本語の単語（<span id="tango-length">n</span>個）が組み合わされた無意味な文字列（<span id="tango-combination">x</span>通り）が表示されます。
-        <br>単語は手作業で追加しているため、辞書のような網羅性はないですが、手作りのぬくもりが楽しめます。
-        <br>
-        <br>※生成される文字列に意図せず不適切な結果が含まれる可能性があります。利用者は自己の責任で利用してください。
-        <br>
-        <a><img src="./muimipic.png" id="muimipic" alt="ランダム無意味のイメージ" width="200" height="200"></a>
-        <h2>類似のサイト</h2>
-        <a href="/recipe/" class="content_name" target="_blank" rel="noopener noreferrer">◯ ランダム料理ジェネレータ</a>
-        <a href="/newword/" class="content_name" target="_blank" rel="noopener noreferrer">◯ 新語・流行語ジェネレータ</a>
+        <p id="description" class="text-sub">
+            ランダムに選ばれた主に日本語の単語（<span id="tango-length">n</span>個）が
+            組み合わされた無意味な文字列（<span id="tango-combination">x</span>通り）が表示されます。
+            <br>単語は手作業で追加しているため、辞書のような網羅性はないですが、手作りのぬくもりが楽しめます。
+            <br>
+            <br>※生成される文字列に意図せず不適切な結果が含まれる可能性があります。利用者は自己の責任で利用してください。
         </p>
-
+        <a><img src="./muimipic.png" id="muimipic" alt="ランダム無意味のイメージ" width="200" height="200"></a>
+        <div class="analogue">
+            <h3>類似のサイト</h3>
+            <a href="/recipe/" class="content_name" target="_blank" rel="noopener noreferrer">ランダム料理ジェネレータ</a>
+            <a href="/newword/" class="content_name" target="_blank" rel="noopener noreferrer">新語・流行語ジェネレータ</a>
+        </div>
         <script type="text/javascript">
             var tango = document.getElementById("tango");
             var tangoHollow = document.getElementById("tango-hollow");
@@ -116,7 +116,6 @@
                 setTimeout(function() {
                     tango.style.transform = 'scale(1.0)';
                     tango.style.opacity = 1;
-
                 }, 300);
             }
             document.getElementById("twitter-share-button").onclick = function() {
@@ -142,7 +141,6 @@
             }
             console.log("重複しているtng1の要素:", duplicates);
             */
-
         </script>
     </main>
     <footer>
