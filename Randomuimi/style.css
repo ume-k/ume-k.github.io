@@ -146,7 +146,7 @@ i.fa-twitter {
     font-size: 20px;
 }
 
-h2 {
+#h2sp {
     margin-top: 80px;
 }
 
@@ -161,7 +161,7 @@ h2 {
 }
 
 .analogue {
-    margin: 30px 60px 0px 60px;
+    margin: 80px 80px 0px 80px;
     background-color: rgb(243, 243, 243);
     border: dashed 2px rgb(155, 153, 153);
     padding: 20px 0px 40px 0px;

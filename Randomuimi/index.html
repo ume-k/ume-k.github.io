@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#58614a">
+    <meta name="keywords" content="ランダム単語,日本語,アイデア">
+    <meta name="description" content="ランダムに単語が表示され、無意味な文字列を生成するサイト。お題・アイデア・ネタ出しのツールとして、膨大な組み合わせが貴方の発想を手助け。">
     <title>ランダム無意味ワード生成機 | 無意味な単語で小説のお題出し</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/Randomuimi/favicon.ico" id="favicon">
@@ -23,7 +25,6 @@
         <meta name="twitter:title" content="ランダム無意味ワード生成機">
         <meta name="twitter:description" content="ランダムに単語が表示されて無意味な文字列を生成します。アイデア・お題に使えるワードガチャ">
         <meta name="twitter:image" content="https://ume-k.github.io/Randomuimi/blackgray.png">
-        <meta name="description" content="ランダムに単語が表示され、無意味な日本語の文字列を生成するサイト。膨大な組み合わせで、アイデアやお題が欲しい時のツール、ネタ出し用のワードガチャアプリとしてあなたの発想を手助けします。簡単なクリックで生まれた言葉をTwitterで共有できます。">
     </head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BD4QYWFV9M"></script>
@@ -56,7 +57,7 @@
     <main>
         <img src="./muimiball.png" class="ball" id="ball" alt="ランダム無意味" width="120" height="120">
         <h1>ランダム無意味ワード生成機</h1>
-        <p class="text-sub">生成ボタンをクリックするだけでランダムに単語が表示されて無意味な文字列が簡単に誕生します。<br>漫画・小説のネタ出しやお題決めなどにお使いください。</p>
+        <p class="text-sub">生成ボタンをクリックするだけでランダムに単語が表示されて無意味な文字列が簡単に誕生します。<br>漫画・小説のネタ出しやお題決めなどにご活用ください。</p>
         <div id="tango-container"><div class="tango" id="tango">↓<i>生成ボタンをクリック</i>↓</div></div>
         <div class="contents2">
             <button class="btn pushGen" onclick="RandomWords();" autofocus>生成</button>              
@@ -72,19 +73,19 @@
         <div class="tango-aux" id="tango-hollow">生成ボタンクリック</div>
         <div class="lab01">反転</div>
         <div class="tango-aux" id="tango-invert">クリックを生成ボタン</div>
-        <h2>無意味な説明</h2>
+        <h2 id="h2sp">無意味な説明</h2>
         <p id="description" class="text-sub">
             ランダムに選ばれた主に日本語の単語（<span id="tango-length">n</span>個）が
             組み合わされた無意味な文字列（<span id="tango-combination">x</span>通り）が表示されます。
             <br>単語は手作業で追加しているため、辞書のような網羅性はないですが、手作りのぬくもりが楽しめます。
             <br>
-            <br>※生成される文字列に意図せず不適切な結果が含まれる可能性があります。利用者は自己の責任で利用してください。
+            <br>※ 生成される文字列に意図せず不適切な結果が含まれる可能性があります。利用者は自己の責任で利用してください。
         </p>
         <a><img src="./muimipic.png" id="muimipic" alt="ランダム無意味のイメージ" width="200" height="200"></a>
         <div class="analogue">
-            <h3>類似のサイト</h3>
+            <h2>類似のサイト</h2>
             <a href="/recipe/" class="content_name" target="_blank" rel="noopener noreferrer">ランダム料理ジェネレータ</a>
-            <a href="/newword/" class="content_name" target="_blank" rel="noopener noreferrer">新語・流行語ジェネレータ</a>
+            <a href="/newword/" class="content_name" target="_blank" rel="noopener noreferrer">新語・流行語ジェネレータ</a>    
         </div>
         <script type="text/javascript">
             var tango = document.getElementById("tango");
