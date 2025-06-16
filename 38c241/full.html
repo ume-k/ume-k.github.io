@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#38c241">
+    <title>full #38c241</title>
+    <style>
+        body {
+            background-color: #38c241;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            user-select: none;
+        }
+        h1:hover {
+            color: #38c241;
+            transition: color 0.5s;
+        }
+        .content {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .nav-button {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: white;
+            color: #38c241;
+        }
+        .fullscreen-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #aeecb3;
+            color: #38c241;
+            border: 2px solid #38c241;
+            padding: 8px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .fullscreen-button:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>#38c241</h1>
+    <div class="content">
+        <a href="/38c241"><button class="nav-button">home</button></a>
+        <button class="fullscreen-button" onclick="toggleFullscreen()">Full screen ON/OFF</button>
+    </div>
+    <script>
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
