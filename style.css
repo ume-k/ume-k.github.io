@@ -26,51 +26,53 @@ header {
 
 main {
     background-color: #f8f8f8;
-    padding: 45px 34px 90px 34px;
+    padding: 32px 34px;
     height: auto;
 }
 
 .title-main {
     width: 100%;
     font-size: 18px;
-    padding: 18px 0;
-    margin-bottom: 0px;
-    background-color: rgb(181, 204, 164);
+    padding: 16px 16px;
+    /* margin-bottom: 0px; */
+    background-color: rgb(168, 173, 168);
     color: rgb(0, 0, 0);
-    text-align: center;
+    /* text-align: center; */
     font-family: 'Kaisei Decol', serif;
     user-select: none;
     border-bottom: 8px solid #242424;
 }
+h1 {
+    display: inline;
+}
 
 .material-icons.sobal {
-    font-size: 70px;
+    font-size: 36px;
 }
 
 h2 {
-    font-size: 30px;
-    margin: 30px 0px;
+    margin: 0px 0px 16px 0px;
 }
 
 ul {
-    margin: 0px 20px;
+    margin: 0px 32px;
     padding: 0px;
     list-style: none;
 }
 
 li {
-    padding: 6px;
+    padding: 0px;
+    margin: 8px 0px 0px 0px;
 }
 
 .content_name {
-    font-size: 20px;
+    font-size: 0px;
     font-weight: bold;
 }
 
 .link-list a{
     padding: 0px;
-    margin: 0px;
-    font-size: 22px;
+    font-size: 18px;
     color:rgb(0, 0, 0);
     text-decoration-color: #82dd90cc;
     text-decoration-line: underline;
@@ -79,15 +81,9 @@ li {
     text-decoration-skip-ink: none;
 }
 
-.link-list p{
-    margin: 10px 0px;
-    padding: 5px;
-    font-size: 17px;
-}
-
 .nazoimg {
     display: flex;
-    margin: 25px 0px;
+    margin: 8px 0px 0px 0px;
 }
 
 .ball:hover {
@@ -96,8 +92,8 @@ li {
 
 span {
     display: block;
-    padding: 15px 20px;
-    font-size: 18px;
+    padding: 8px 8px;
+    font-size: 16px;
     line-height: 135%;
 }
 
