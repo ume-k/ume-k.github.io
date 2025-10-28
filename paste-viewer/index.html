@@ -1,132 +1,172 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>画像貼り付けビューア | コピーした画像をペーストして表示</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: system-ui, -apple-system, sans-serif;
-            background: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .hint {
-            color: #666;
-            margin-bottom: 30px;
-            text-align: center;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        #imageDisplay {
-            max-width: 90vw;
-            max-height: 80vh;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            display: none;
-        }
-
-        .status {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        #clearBtn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: none;
-            background: #ccc;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        #clearBtn:hover {
-            background: #aaa;
-        }
-
-        .status.success { background: #4caf50; }
-        .status.error { background: #f44336; }
-        .status.show { opacity: 1; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>画像貼り付けビューア | コピーした画像を表示するサイト</title>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+}
+  header {
+    height: 56px;
+    width: 100%;
+    font-size: 24px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(36, 36, 36);
+  }
+  .title-m {
+  text-decoration: none;
+  color:rgb(255, 255, 255);
+  padding: 16px;
+  float: left;
+}
+.title-m:hover,
+.title-m:focus {
+  text-decoration: underline;
+  color: #ddd;
+}
+  main {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 40px;
+  }
+  .hint {
+    color: #666;
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #e9e7e7;
+    border-radius: 16px;
+    }
+  #drop-zone {
+    margin-top:20px;
+    border: 2px dashed #aaa;
+    padding: 20px;
+    background: #f9f9f9;
+    color: #5c5c5c;
+  }
+  #cont-zone {
+    background-color: #dfdede;
+    margin-top: 12px;
+    padding: 8px;
+    font-size: 12px;    
+  }
+  .image-container {
+    margin-top: 20px;
+    padding: 18px;
+    border: 1px solid #ccc;
+    background: #e9e7e7;
+  }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+  .info {
+    font-size: 0.9em;
+    color: #333;
+    text-align: left;
+    margin: 5px auto;
+    max-width: 400px;
+  }
+  .clear-btn {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  .clear-btn:hover {
+    background: #c9302c;
+  }
+  .open-btn {
+    margin-top: 16px;
+    padding: 0px 8px;
+  }
+</style>
 </head>
 <body>
-    <h1>画像貼り付けビューア</h1>
-    
-    <div class="hint">
-        [PC] Ctrl+V (Windows) / Cmd+V (Mac) で画像を貼り付け
-    </div>
-    <button id="clearBtn">画像をクリア</button>
+  <header>
+    <a class="title-m" href="../">無意味そば</a>
+  </header>
+  <main>
+      <h1>画像貼り付けビューア</h1>
+      <div class="hint">
+        コピーした画像を貼り付けて確認するだけのサイトです。<br>
+        複数の画像を追加可能で、サイズや解像度なども確認できます。<br>
+        貼り付けた画像はこのページ内で表示されるだけで、保存されません。
+      </div>
+      <div id="drop-zone">
+        <b>↓ 画像を貼り付けてください ↓</b><br>
+        [Windows] Ctrl + V もしくは、Windowsキー + V<br>
+        [Mac] Cmd + V
+      </div>
+      <div id="cont-zone" contenteditable="true">[スマホ用]</div>
+      <div id="image-list"></div>
+  </main>
 
-    <img id="imageDisplay" alt="貼り付けた画像">
-    <div id="info" style="margin-top:10px; color:#555;"></div>
 
-    
-    <div id="status" class="status"></div>
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const imageList = document.getElementById('image-list');
 
-    <script>
-        const img = document.getElementById('imageDisplay');
-        const status = document.getElementById('status');
+    document.addEventListener('paste', async (e) => {
+      const items = e.clipboardData.items;
+      for (let item of items) {
+        if (item.type.startsWith('image/')) {
+          const file = item.getAsFile();
+          if (file) {
+            const url = URL.createObjectURL(file);
+            const img = new Image();
+            img.src = url;
 
-        function showStatus(message, type) {
-            status.textContent = message;
-            status.className = `status ${type} show`;
-            setTimeout(() => status.classList.remove('show'), 2000);
+            img.onload = () => {
+              // 各種情報を取得
+              const container = document.createElement('div');
+              container.className = 'image-container';
+
+              const info = document.createElement('div');
+              info.className = 'info';
+              info.innerHTML = `
+                <strong>ファイル名:</strong> ${file.name || '(不明)'}<br>
+                <strong>形式:</strong> ${file.type}<br>
+                <strong>サイズ:</strong> ${(file.size / 1024).toFixed(2)} KB<br>
+                <strong>解像度:</strong> ${img.naturalWidth} × ${img.naturalHeight}<br>
+                <strong>貼り付け時刻:</strong> ${new Date().toLocaleString()}
+              `;
+
+              const clearBtn = document.createElement('button');
+              clearBtn.textContent = 'この画像を削除';
+              clearBtn.className = 'clear-btn';
+              clearBtn.onclick = () => {
+                URL.revokeObjectURL(url); //メモリ解放
+                container.remove();
+              };
+
+              const openBtn = document.createElement('button');
+              openBtn.textContent = '新しいタブで画像を開く';
+              openBtn.className = 'open-btn';
+              openBtn.onclick = () => {
+                window.open(url, '_blank');
+              };
+
+              container.appendChild(openBtn);
+              container.appendChild(img);
+              container.appendChild(info);
+              container.appendChild(clearBtn);
+
+              imageList.appendChild(container);
+
+            };
+          }
         }
-
-        document.addEventListener('paste', async (e) => {
-            const items = e.clipboardData.items;
-            
-            for (let item of items) {
-                if (item.type.startsWith('image/')) {
-                    const file = item.getAsFile();
-                    if (file) {
-                        const url = URL.createObjectURL(file);
-                        img.src = url;
-                        img.style.display = 'block';
-                        showStatus('画像を表示しました', 'success');
-                        showImageInfo(file);
-                        return;
-                    }
-                }
-            }
-            
-            showStatus('画像が見つかりません', 'error');
-        });
-
-        const clearBtn = document.getElementById('clearBtn');
-        clearBtn.addEventListener('click', () => {
-            if (img.src) URL.revokeObjectURL(img.src);
-            img.src = '';
-            img.style.display = 'none';
-            showStatus('画像を消しました', 'success');
-        });
-
-        const info = document.getElementById('info');
-        function showImageInfo(file) {
-            const sizeKB = (file.size / 1024).toFixed(1);
-            info.textContent = `形式: ${file.type}, サイズ: ${sizeKB} KB`;
-        }
-
-
-
-    </script>
+      }
+    });
+  </script>
 </body>
 </html>
