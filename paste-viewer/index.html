@@ -1,94 +1,102 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>画像貼り付けビューア | コピーした画像を表示するサイト</title>
-<style>
-* {
-  padding: 0;
-  margin: 0;
-}
-  header {
-    height: 56px;
-    width: 100%;
-    font-size: 24px;
-    color:rgb(255, 255, 255);
-    background-color: rgb(36, 36, 36);
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BD4QYWFV9M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BD4QYWFV9M');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像貼り付けビューア | コピーした画像を表示するサイト</title>
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
   }
-  .title-m {
-  text-decoration: none;
-  color:rgb(255, 255, 255);
-  padding: 16px;
-  float: left;
-}
-.title-m:hover,
-.title-m:focus {
-  text-decoration: underline;
-  color: #ddd;
-}
-  main {
-    font-family: sans-serif;
-    text-align: center;
-    margin: 40px;
-  }
-  .hint {
-    color: #666;
-    margin-top: 30px;
-    text-align: center;
-    padding: 20px;
-    background: #e9e7e7;
-    border-radius: 16px;
+    header {
+      height: 56px;
+      width: 100%;
+      font-size: 24px;
+      color:rgb(255, 255, 255);
+      background-color: rgb(36, 36, 36);
     }
-  #drop-zone {
-    margin-top:20px;
-    border: 2px dashed #aaa;
-    padding: 20px;
-    background: #f9f9f9;
-    color: #5c5c5c;
+    .title-m {
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    padding: 16px;
+    float: left;
   }
-  #cont-zone {
-    background-color: #dfdede;
-    margin-top: 12px;
-    padding: 8px;
-    font-size: 12px;    
+  .title-m:hover,
+  .title-m:focus {
+    text-decoration: underline;
+    color: #ddd;
   }
-  .image-container {
-    margin-top: 20px;
-    padding: 18px;
-    border: 1px solid #ccc;
-    background: #e9e7e7;
-  }
-  .image-container img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-  }
-  .info {
-    font-size: 0.9em;
-    color: #333;
-    text-align: left;
-    margin: 5px auto;
-    max-width: 400px;
-  }
-  .clear-btn {
-    background: #d9534f;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 5px;
-  }
-  .clear-btn:hover {
-    background: #c9302c;
-  }
-  .open-btn {
-    margin-top: 16px;
-    padding: 0px 8px;
-  }
-</style>
+    main {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 40px;
+    }
+    .hint {
+      color: #666;
+      margin-top: 30px;
+      text-align: center;
+      padding: 20px;
+      background: #e9e7e7;
+      border-radius: 16px;
+      }
+    #drop-zone {
+      margin-top:20px;
+      border: 2px dashed #aaa;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #5c5c5c;
+    }
+    #cont-zone {
+      background-color: #dfdede;
+      margin-top: 12px;
+      padding: 8px;
+      font-size: 12px;    
+    }
+    .image-container {
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid #ccc;
+      background: #e9e7e7;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 10px auto;
+    }
+    .info {
+      font-size: 0.9em;
+      color: #333;
+      text-align: left;
+      margin: 5px auto;
+      max-width: 400px;
+    }
+    .clear-btn {
+      background: #d9534f;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    .clear-btn:hover {
+      background: #c9302c;
+    }
+    .open-btn {
+      margin-top: 16px;
+      padding: 0px 8px;
+    }
+  </style>
 </head>
 <body>
   <header>
