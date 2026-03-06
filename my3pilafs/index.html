@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BD4QYWFV9M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BD4QYWFV9M');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>私を構成する3つのピラフ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f7f5f0;
+    --white: #ffffff;
+    --border: #e0dbd2;
+    --text: #222;
+    --text-sub: #888;
+    --accent: #d4822a;
+    --accent-light: #fdf0e4;
+    --radius: 6px;
+    --ura-accent: #5a3e8a;
+    --ura-light: #f0ebfa;
+    --ura-border: #9b7ec8;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    transition: background 0.4s;
+  }
+
+  body.ura-mode {
+    --bg: #f0ebfa;
+    --border: #d4c8e8;
+    --accent: var(--ura-accent);
+    --accent-light: var(--ura-light);
+  }
+
+  /* HEADER */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .site-logo {
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--text-sub);
+    transition: color 0.3s;
+  }
+
+  body.ura-mode .site-logo { color: var(--ura-accent); }
+
+  .ura-hint {
+    font-size: 0.68rem;
+    color: transparent;
+    letter-spacing: 0.05em;
+    transition: color 0.5s;
+    user-select: none;
+  }
+
+  body.ura-mode .ura-hint {
+    color: var(--ura-accent);
+    opacity: 0.7;
+  }
+
+  .main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+
+  .title-area {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .title-area h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+    margin-bottom: 0.7rem;
+    transition: color 0.3s;
+  }
+
+  body.ura-mode .title-area h1 { color: var(--ura-accent); }
+
+  .title-area p {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+  }
+
+  .ura-badge {
+    display: none;
+    margin-top: 0.6rem;
+  }
+
+  body.ura-mode .ura-badge { display: inline-block; }
+
+  .ura-badge span {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--ura-accent);
+    background: var(--ura-light);
+    border: 1px solid var(--ura-border);
+    border-radius: 30px;
+    padding: 0.2rem 0.8rem;
+  }
+
+  .frames {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .frame {
+    width: 140px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    aspect-ratio: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 0.5rem;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .frame.filled {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .frame-num {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 0.65rem;
+    color: var(--text-sub);
+    font-weight: 400;
+  }
+
+  .frame-remove {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 0.65rem;
+    color: var(--text-sub);
+    opacity: 0;
+    transition: opacity 0.2s;
+    line-height: 1;
+  }
+
+  .frame.filled:hover .frame-remove { opacity: 1; }
+
+  .frame-icon { font-size: 2rem; line-height: 1; }
+
+  .frame-label {
+    font-size: 0.72rem;
+    color: var(--text-sub);
+    text-align: center;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  .frame.filled .frame-label {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--text-sub);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .search-wrap {
+    position: relative;
+    margin-bottom: 0.6rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-input:focus { border-color: var(--accent); }
+
+  .search-icon {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    pointer-events: none;
+  }
+
+  .hint-text {
+    font-size: 0.72rem;
+    color: var(--text-sub);
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+    min-height: 1.2em;
+  }
+
+  .hint-text .count { color: var(--accent); font-weight: 500; }
+
+  .pilaf-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .pilaf-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+  }
+
+  .pilaf-card.ura-item {
+    border-style: dashed;
+  }
+
+  .card-icon { font-size: 1.5rem; flex-shrink: 0; width: 2rem; text-align: center; }
+  .card-text { flex: 1; min-width: 0; }
+  .card-name { font-size: 0.88rem; font-weight: 400; letter-spacing: 0.03em; }
+  .card-sub  { font-size: 0.68rem; color: var(--text-sub); margin-top: 0.1rem; }
+
+  /* ADD BUTTON */
+  .card-add-btn {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s, opacity 0.2s;
+  }
+
+  .card-add-btn:hover { background: #c07020; transform: scale(1.1); }
+  .card-add-btn:disabled { opacity: 0.3; cursor: default; transform: none; }
+
+  body.ura-mode .card-add-btn { background: var(--ura-accent); }
+  body.ura-mode .card-add-btn:hover { background: #4a2e7a; }
+
+  /* SHARE BUTTON */
+  .share-btn {
+    width: 100%;
+    padding: 0.95rem;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    color: white;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .share-btn:hover { background: #c07020; }
+  .share-btn:disabled { background: #ccc; cursor: default; }
+
+  body.ura-mode .share-btn { background: var(--ura-accent); }
+  body.ura-mode .share-btn:hover { background: #4a2e7a; }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .modal-overlay.show { display: flex; }
+
+  .modal-box {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    animation: popIn 0.22s ease;
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.94) translateY(8px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+
+  .result-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    background: var(--accent-light);
+    border-radius: 30px;
+    padding: 0.25rem 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  body.ura-mode .result-tag {
+    color: var(--ura-accent);
+    background: var(--ura-light);
+    border: 1px solid var(--ura-border);
+  }
+
+  .modal-box h2 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.8rem;
+  }
+
+  .result-items {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 88px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 1rem 0.5rem;
+  }
+
+  .result-item .r-icon { font-size: 2rem; }
+  .result-item .r-name { font-size: 0.72rem; font-weight: 400; color: var(--text); text-align: center; line-height: 1.5; }
+
+  .modal-actions { display: flex; flex-direction: column; gap: 8px; }
+  .modal-actions-row { display: flex; gap: 8px; }
+
+  .btn-share-x {
+    flex: 1; padding: 0.75rem;
+    background: #000; border: none; border-radius: var(--radius);
+    color: white; font-family: inherit; font-size: 0.82rem; letter-spacing: 0.05em;
+    cursor: pointer; transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  }
+  .btn-share-x:hover { background: #222; }
+
+  .btn-share-bsky {
+    flex: 1; padding: 0.75rem;
+    background: #0085ff; border: none; border-radius: var(--radius);
+    color: white; font-family: inherit; font-size: 0.82rem; letter-spacing: 0.05em;
+    cursor: pointer; transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  }
+  .btn-share-bsky:hover { background: #006ecc; }
+
+  .btn-close {
+    width: 100%; padding: 0.7rem;
+    background: transparent; border: 1px solid var(--border); border-radius: var(--radius);
+    color: var(--text-sub); font-family: inherit; font-size: 0.82rem;
+    cursor: pointer; transition: border-color 0.2s;
+  }
+  .btn-close:hover { border-color: #aaa; }
+
+  .ura-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ura-accent);
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 200;
+  }
+
+  .ura-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  footer {
+    background: #1c1c1c;
+    padding: 1.6rem 2rem;
+    border-top: 1px solid #333;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .footer-meta a {
+    font-size: 0.72rem;
+    color: #666;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .footer-meta a:hover { color: #aaa; }
+  .footer-meta span {
+    font-size: 0.62rem;
+    color: #444;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-policy a {
+    font-size: 0.68rem;
+    color: #555;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1px;
+  }
+  .footer-policy a:hover { color: #aaa; border-color: #666; }
+
+  .ura-divider {
+    display: none;
+    margin: 0.5rem 0 0.8rem;
+    text-align: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--ura-accent);
+    position: relative;
+  }
+
+  body.ura-mode .ura-divider { display: block; }
+
+  .ura-divider::before, .ura-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: var(--ura-border);
+    opacity: 0.5;
+  }
+
+  .ura-divider::before { left: 0; }
+  .ura-divider::after  { right: 0; }
+
+  @media (max-width: 480px) {
+    .frames { gap: 8px; }
+    .frame { width: 100px; }
+    footer { padding: 1.4rem 1.2rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="site-logo" id="logoTrigger">私を構成する3つのピラフ</span>
+  <span class="ura-hint" id="uraHint">裏モード解放中</span>
+</header>
+
+<main class="main">
+
+  <div class="title-area">
+    <h1 id="mainTitle">私を構成する3つのピラフ</h1>
+    <p>あなたの人生に影響を与えたピラフを3つ選んでください。</p>
+    <div class="ura-badge"><span>✦ 裏ピラフ モード</span></div>
+  </div>
+
+  <div class="frames" id="frames">
+    <div class="frame" id="frame-0" onclick="removeFromSlot(0)">
+      <span class="frame-num">1</span>
+      <div class="frame-icon"></div>
+      <div class="frame-label">未選択</div>
+      <span class="frame-remove">✕</span>
+    </div>
+    <div class="frame" id="frame-1" onclick="removeFromSlot(1)">
+      <span class="frame-num">2</span>
+      <div class="frame-icon"></div>
+      <div class="frame-label">未選択</div>
+      <span class="frame-remove">✕</span>
+    </div>
+    <div class="frame" id="frame-2" onclick="removeFromSlot(2)">
+      <span class="frame-num">3</span>
+      <div class="frame-icon"></div>
+      <div class="frame-label">未選択</div>
+      <span class="frame-remove">✕</span>
+    </div>
+  </div>
+
+  <p class="section-label">ピラフを選ぶ</p>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" id="searchInput"
+      placeholder="ピラフを検索する"
+      oninput="handleSearch()"
+      onfocus="handleSearchFocus()">
+  </div>
+
+  <div class="hint-text" id="hintText">3つ追加してください</div>
+
+  <div class="pilaf-grid" id="pilafGrid"></div>
+
+  <button class="share-btn" id="shareBtn" onclick="handleShare()" disabled>
+    選んだピラフを共有
+  </button>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-meta">
+      <a href="https://x.com/miyakume">@miyakume</a>
+      <span>無意味そば</span>
+    </div>
+    <div class="footer-policy">
+      <a href="privacy-policy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="resultOverlay">
+  <div class="modal-box">
+    <div class="result-tag" id="resultTag">MY PILAF</div>
+    <h2>私を構成する3つのピラフ</h2>
+    <div class="result-items" id="resultItems"></div>
+    <div class="modal-actions">
+      <div class="modal-actions-row">
+        <button class="btn-share-x" onclick="shareToX()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Xでシェア
+        </button>
+        <button class="btn-share-bsky" onclick="shareToBluesky()">
+          <svg width="14" height="12" viewBox="0 0 568 501" fill="white"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 328.723 536.444 409.386 473.333 490.32c-119.86 154.065-172.689-38.662-185.555-87.979-2.4-8.914-3.539-13.082-3.778-9.456-.239-3.626-1.378.542-3.778 9.456-12.866 49.317-65.695 242.044-185.555 87.979C31.556 409.386 60.778 328.723 175.653 304.25 109.933 315.435 36.053 296.955 15.778 224.502 9.945 203.66 0 75.293 0 57.947 0-28.906 76.134-1.611 123.121 33.664z"/></svg>
+          Blueskyでシェア
+        </button>
+      </div>
+      <button class="btn-close" onclick="closeResult()">閉じる</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="noticeOverlay">
+  <div class="modal-box notice-box">
+    <button class="btn-ok" onclick="closeNotice()">わかりました</button>
+  </div>
+</div>
+
+<div class="ura-toast" id="uraToast">✦ 裏ピラフ モード解放</div>
+
+<script>
+  const NORMAL_PILAFS = [
+    { id: 'ebi', name: 'エビピラフ', icon: '🦐', ura: false },
+  ];
+
+  const URA_PILAFS = [
+    { id: 'tako',    name: 'タコピラフ',     icon: '🐙', ura: true, sub: '裏メニュー' },
+    { id: 'kani',    name: 'カニピラフ',     icon: '🦀', ura: true, sub: '裏メニュー' },
+    { id: 'hotate',  name: 'ホタテピラフ',   icon: '🐚', ura: true, sub: '裏メニュー' },
+    { id: 'salmon',  name: 'サーモンピラフ', icon: '🐟', ura: true, sub: '裏メニュー' },
+    { id: 'beef',   name: 'ビーフピラフ',     icon: '🐂', ura: true, sub: '裏メニュー' },
+    { id: 'poke',   name: 'ポークピラフ',     icon: '🐖', ura: true, sub: '裏メニュー' },
+    { id: 'kinoko', name: 'キノコピラフ', icon: '🍄', ura: true, sub: '裏メニュー' },
+    { id: 'cone', name: 'コーンピラフ', icon: '🌽', ura: true, sub: '裏メニュー' },
+
+  ];
+
+  let selected = [];
+  let noticeShown = false;
+  let uraMode = false;
+  let currentQuery = '';
+  let logoTapCount = 0;
+  let logoTapTimer = null;
+
+  document.getElementById('logoTrigger').addEventListener('click', () => {
+    logoTapCount++;
+    clearTimeout(logoTapTimer);
+    logoTapTimer = setTimeout(() => { logoTapCount = 0; }, 1500);
+    if (logoTapCount >= 5) {
+      logoTapCount = 0;
+      toggleUraMode();
+    }
+  });
+
+  function toggleUraMode() {
+    uraMode = !uraMode;
+    document.body.classList.toggle('ura-mode', uraMode);
+    if (!uraMode) {
+      selected = selected.filter(s => !s.ura);
+      updateFrames();
+      updateHint();
+      document.getElementById('shareBtn').disabled = selected.length < 3;
+    }
+    renderGrid();
+    showToast(uraMode ? '✦ 裏ピラフ モード解放' : '裏ピラフ モード終了');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('uraToast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  function getCurrentList() {
+    const base = uraMode ? [...NORMAL_PILAFS, ...URA_PILAFS] : NORMAL_PILAFS;
+    if (!currentQuery) return base;
+    return base.filter(p => p.name.includes(currentQuery));
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById('pilafGrid');
+    grid.innerHTML = '';
+
+    const list = getCurrentList();
+    const normalItems = list.filter(p => !p.ura);
+    const uraItems    = list.filter(p =>  p.ura);
+
+    normalItems.forEach(p => grid.appendChild(makeCard(p)));
+
+    if (uraMode && uraItems.length > 0) {
+      const div = document.createElement('div');
+      div.className = 'ura-divider';
+      div.textContent = '裏ピラフ';
+      grid.appendChild(div);
+      uraItems.forEach(p => grid.appendChild(makeCard(p)));
+    }
+  }
+
+  function makeCard(p) {
+    const full = selected.length >= 3;
+    const card = document.createElement('div');
+    card.className = 'pilaf-card' + (p.ura ? ' ura-item' : '');
+    card.innerHTML = `
+      <div class="card-icon">${p.icon}</div>
+      <div class="card-text">
+        <div class="card-name">${p.name}</div>
+        ${p.sub ? `<div class="card-sub">${p.sub}</div>` : ''}
+      </div>
+      <button class="card-add-btn" ${full ? 'disabled' : ''} title="追加">＋</button>
+    `;
+    card.querySelector('.card-add-btn').addEventListener('click', () => addItem(p));
+    return card;
+  }
+
+  function addItem(p) {
+    if (selected.length >= 3) return;
+    selected.push({ ...p });
+    updateFrames();
+    updateHint();
+    renderGrid();
+    document.getElementById('shareBtn').disabled = selected.length < 3;
+  }
+
+  function removeFromSlot(i) {
+    if (!selected[i]) return;
+    selected.splice(i, 1);
+    updateFrames();
+    updateHint();
+    renderGrid();
+    document.getElementById('shareBtn').disabled = selected.length < 3;
+  }
+
+  function updateFrames() {
+    for (let i = 0; i < 3; i++) {
+      const f = document.getElementById('frame-' + i);
+      if (selected[i]) {
+        f.classList.add('filled');
+        f.querySelector('.frame-icon').textContent = selected[i].icon;
+        f.querySelector('.frame-label').textContent = selected[i].name;
+      } else {
+        f.classList.remove('filled');
+        f.querySelector('.frame-icon').textContent = '';
+        f.querySelector('.frame-label').textContent = '未選択';
+      }
+    }
+  }
+
+  function updateHint() {
+    const n = selected.length;
+    const el = document.getElementById('hintText');
+    if (n === 0) el.innerHTML = '3つ追加してください';
+    else if (n < 3) el.innerHTML = `<span class="count">${n}</span> / 3 追加済み`;
+    else el.innerHTML = `<span class="count">3</span> / 3 ✓ 選択完了`;
+  }
+
+  function handleSearch() {
+    currentQuery = document.getElementById('searchInput').value.trim();
+    renderGrid();
+  }
+
+  function handleSearchFocus() {
+    if (!noticeShown && !uraMode) {
+      noticeShown = true;
+      setTimeout(() => {
+        document.getElementById('noticeOverlay').classList.add('show');
+      }, 300);
+    }
+  }
+
+  function handleShare() {
+    if (selected.length < 3) return;
+    const items = document.getElementById('resultItems');
+    items.innerHTML = '';
+    selected.forEach(p => {
+      const div = document.createElement('div');
+      div.className = 'result-item';
+      div.innerHTML = `<div class="r-icon">${p.icon}</div><div class="r-name">${p.name}</div>`;
+      items.appendChild(div);
+    });
+    const tag = document.getElementById('resultTag');
+    tag.textContent = uraMode ? '✦ 裏ピラフ IDENTITY' : 'MY PILAF IDENTITY';
+    document.getElementById('resultOverlay').classList.add('show');
+  }
+
+  function closeResult() {
+    document.getElementById('resultOverlay').classList.remove('show');
+  }
+
+  function getShareText() {
+    const lines = selected.map(p => p.name).join('\n');
+    const tag = uraMode ? '#私を構成する3つの裏ピラフ' : '#私を構成する3つのピラフ';
+    return `私を構成する3つのピラフ\n\n${lines}\n\n${tag}`;
+  }
+
+  function shareToX() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(getShareText()), '_blank');
+  }
+
+  function shareToBluesky() {
+    window.open('https://bsky.app/intent/compose?text=' + encodeURIComponent(getShareText()), '_blank');
+  }
+
+  document.getElementById('resultOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeResult();
+  });
+
+  renderGrid();
+</script>
+</body>
+</html>
